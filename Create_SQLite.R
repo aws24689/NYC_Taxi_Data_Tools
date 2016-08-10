@@ -56,9 +56,7 @@ library("RSQLite")
 library('tcltk')
 library(tigris)
 library(dplyr)
-library(leaflet)
 library(sp)
-library(ggmap)
 library(maptools)
 library(broom)
 library(httr)
@@ -261,16 +259,6 @@ for(l in 1:length(yellow_filepaths)){
   
   
   input_file$neighborhood_pickup
-  #Removing missing pickup_neighborhood rows(Do not run this block more than once)
-  #input_file$neighborhood_pickup[complete.cases(input_file$neighborhood_pickup),]
-  #nas<- grep(FALSE,complete.cases(input_file$neighborhood_pickup))
-  #input_file<- input_file[-nas,]
-  # remove(input_file)
-  
-  #Removing missing dropoff_neighborhood rows
-  #nas<- grep(FALSE,complete.cases(input_file$neighborhood_dropoff))
-  #input_file<- input_file[-nas,]
-  # remove(input_file1)
   
   #Write the Table
   db <- dbConnect(SQLite(), dbname= db_filepath)
@@ -385,16 +373,6 @@ for(k in 1:length(green_filepaths)){
   
   
   input_file$neighborhood_pickup
-  #Removing missing pickup_neighborhood rows(Do not run this block more than once)
-  #input_file$neighborhood_pickup[complete.cases(input_file$neighborhood_pickup),]
-  #nas<- grep(FALSE,complete.cases(input_file$neighborhood_pickup))
-  #input_file<- input_file[-nas,]
-  # remove(input_file)
-  
-  #Removing missing dropoff_neighborhood rows
-  #nas<- grep(FALSE,complete.cases(input_file$neighborhood_dropoff))
-  #input_file<- input_file[-nas,]
-  # remove(input_file1)
   
   #write the table
   db <- dbConnect(SQLite(), dbname= db_filepath)
